@@ -1,0 +1,105 @@
+<h1>Register :</h1>
+
+<form #formInfo="ngForm">
+    <mat-form-field appearance="fill">
+        <mat-label>Full name :</mat-label>
+        <input matInput type="text" name="fullName" [(ngModel)]="user.fullName" required
+            pattern="^\b(?:[A-Z]\w+\b(?:\s*)?)+$" #fullNameInfo="ngModel" maxlength="20" minlength="4">
+        <mat-error *ngIf="fullNameInfo.errors?.pattern && fullNameInfo.touched">A username words must begin with a
+            capital letter and in English.</mat-error>
+        <mat-error *ngIf="fullNameInfo.errors?.required && fullNameInfo.touched">Missing full name.</mat-error>
+        <mat-error *ngIf="fullNameInfo.errors?.minlength && fullNameInfo.touched">Full name must be at least 4 character
+            long.</mat-error>
+    </mat-form-field>
+    <br><br>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Identity card :</mat-label>
+        <input matInput type="text" name="identityCard" [(ngModel)]="user.identityCard" required pattern="^[0-9]*$"
+            #identityCardInfo="ngModel" maxlength="9" minlength="8">
+        <mat-error *ngIf="identityCardInfo.errors?.pattern && identityCardInfo.touched">Identity card must contain only
+            numbers.</mat-error>
+        <mat-error *ngIf="identityCardInfo.errors?.required && identityCardInfo.touched">Missing identity card.
+        </mat-error>
+        <mat-error *ngIf="identityCardInfo.errors?.minlength && identityCardInfo.touched">Identity card must be 8
+            characters long.</mat-error>
+    </mat-form-field>
+    <br><br>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Username :</mat-label>
+        <input matInput type="text" name="userName" [(ngModel)]="user.userName" required pattern="^[a-zA-Z0-9 ]*$"
+            #userNameInfo="ngModel" maxlength="20" minlength="4">
+        <mat-error *ngIf="userNameInfo.errors?.pattern && userNameInfo.touched">Username must be in English only or
+            numbers</mat-error>
+        <mat-error *ngIf="userNameInfo.errors?.required && userNameInfo.touched">Missing username</mat-error>
+        <mat-error *ngIf="userNameInfo.errors?.minlength && userNameInfo.touched">Username must be at least 4 character
+            long.</mat-error>
+    </mat-form-field>
+    <br><br>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Date of birth :</mat-label>
+        <input name="dateOfBirth" [(ngModel)]="user.dateOfBirth" matInput [min]="minDate" [max]="maxDate"
+            [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <br><br>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Gender :</mat-label>
+        <mat-select matInput required [(value)]="user.gender" [formControl]="genderControl">
+            <mat-option>None</mat-option>
+            <mat-option value="Male">Male</mat-option>
+            <mat-option value="Female">Female</mat-option>
+            <input style="display: none;" matInput type="text" name="userGender" [(ngModel)]="user.gender" required
+                #genderInfo="ngModel">
+        </mat-select>
+        <mat-error *ngIf="genderControl?.hasError('required')">Missing gender</mat-error>
+    </mat-form-field>
+    <br><br>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Email :</mat-label>
+        <input matInput type="email" name="email" [(ngModel)]="user.email" required
+            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #emailInfo="ngModel" maxlength="40" minlength="4"
+            placeholder="Ex. pat@example.com">
+        <mat-error *ngIf="emailInfo.errors?.pattern && emailInfo.touched">Please enter a valid email address</mat-error>
+        <mat-error *ngIf="emailInfo.errors?.required && emailInfo.touched">Missing email</mat-error>
+        <mat-error *ngIf="emailInfo.errors?.minlength && emailInfo.touched">Email must be at least 4 character long.
+        </mat-error>
+    </mat-form-field>
+    <br><br>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input [type]="hide ? 'password' : 'text'" matInput name="password" [(ngModel)]="user.password" required
+            pattern="^[a-zA-Z0-9._]+$" #passwordInfo="ngModel" maxlength="20" minlength="4">
+        <mat-error *ngIf="passwordInfo.errors?.pattern && passwordInfo.touched">Password must be english letters and
+            numbers</mat-error>
+        <mat-error *ngIf="passwordInfo.errors?.required && passwordInfo.touched">Missing password</mat-error>
+        <mat-error *ngIf="passwordInfo.errors?.minlength && passwordInfo.touched">Password must be at least 6 character
+            long.</mat-error>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+    </mat-form-field>
+    <br><br>
+
+    <input type="file" #imageBox accept="image/*" (change)="displayPreview($event.target.files[0])">
+    <button mat-stroked-button color="primary" class="imageButton" (click)="imageBox.click()">
+        Upload a user image
+    </button>
+    <br><br>
+
+    <ng-container *ngIf="preview">
+        <img src="{{preview}}">
+        <br><br>
+    </ng-container>
+
+    <button mat-raised-button color="primary" mat-button [disabled]="formInfo.form.invalid"
+        (click)="register()">Register</button>
+</form>
+<br><br>

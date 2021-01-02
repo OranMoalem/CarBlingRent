@@ -1,0 +1,10 @@
+.size{
+    width: 400px !important;
+    height: 500px !important;
+    margin-bottom: 80px;
+}
+
+h5 {
+    text-align: center;
+    padding-left: 50px;
+}

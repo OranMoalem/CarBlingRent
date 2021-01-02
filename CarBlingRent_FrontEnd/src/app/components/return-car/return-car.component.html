@@ -1,0 +1,46 @@
+<form #formInfo="ngForm">
+    <mat-form-field appearance="fill">
+        <mat-label>Car Number :</mat-label>
+        <input matInput type="number" name="carNumber" [(ngModel)]="carRental.carNumber" required pattern="[0-9]{7,8}"
+            #carNumberInfo="ngModel">
+        <mat-error *ngIf="carNumberInfo.errors?.pattern && carNumberInfo.touched">Car number must be between 7-8
+            digits..</mat-error>
+        <mat-error *ngIf="carNumberInfo.errors?.required && carNumberInfo.touched">Missing year of car number.
+        </mat-error>
+    </mat-form-field>
+    <br>
+
+    <button mat-raised-button color="primary" [disabled]="formInfo.form.invalid" (click)="findCarOrders()">Find car
+        orders </button>
+</form>
+
+<ng-container *ngIf="ordersOfTheCar">
+    <br><br>
+    <div>
+
+        <table id="table">
+            <tr>
+                <th>Start date order</th>
+                <th>Return date order</th>
+                <th>Total payment of the rental</th>
+                <th>Return car to rental company</th>
+            </tr>
+            <tr *ngFor="let o of ordersOfTheCar">
+                <td>{{o.startDate| date : 'dd/MM/yyyy'}}</td>
+                <td>{{o.returnDate| date : 'dd/MM/yyyy'}}</td>
+                <td>
+                    <p> {{getPriceRental(o.id)}}&#8362;</p>
+                    <p *ngIf="!isLateReturningCar(o.id)">Payment for rental days: {{getNumberOfRentalDays(o.id)}} days
+                    </p>
+                    <p class="late-days-alert" *ngIf="isLateReturningCar(o.id)">Payment for rental days:
+                        {{getNumberOfLateDays(o.id)}} days</p>
+                    <p class="late-days-alert" *ngIf="isLateReturningCar(o.id)">Payment for late days:
+                        {{getNumberOfLateDays(o.id)}} days</p>
+                </td>
+                <td>
+                    <button mat-flat-button color="primary" (click)="returnCarToday(o.id)">Return car today</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</ng-container>

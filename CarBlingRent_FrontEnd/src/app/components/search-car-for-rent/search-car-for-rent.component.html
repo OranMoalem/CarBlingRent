@@ -1,0 +1,70 @@
+<section>
+    <form #formInfo="ngForm">
+        <mat-label>Search :</mat-label>
+        <mat-form-field appearance="fill">
+            <input matInput #strInfo="ngModel" type="text" name="fullName" [(ngModel)]="textToSearch" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" id="ex">
+            <mat-label>Search by :</mat-label>
+            <mat-select [(value)]="searchBy" matInput required id="ex" [formControl]="serchByControl">
+                <mat-option>None</mat-option>
+                <mat-option value="Gear">Gear</mat-option>
+                <mat-option value="Year">Year</mat-option>
+                <mat-option value="Manufacturer">Manufacturer</mat-option>
+                <mat-option value="Model">Model</mat-option>
+                <mat-option value="Free Text">Free text</mat-option>
+                <input style="display: none;" matInput type="text" name="searchBy" [(ngModel)]="searchBy" required
+                    #searchByInfo="ngModel">
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" mat-button [disabled]="formInfo.form.invalid"
+            (click)="startSearch()">Start </button>
+    </form>
+
+    <ng-container *ngIf="data">
+        <h3 class="header-data">Last cars you were interested in:</h3>
+        <p class="center"> {{data}}</p>
+    </ng-container>
+
+    <ng-container *ngIf="!searchResultsCarRental">
+        <img class="gif" src="\assets\GIF\animation_300_kilwuixq.gif">
+    </ng-container>
+
+    <div *ngIf="searchResultsCarRental" class="w3-container">
+        <div *ngFor="let c of searchResultsCarRental" class="w3-card-4" class="center" style="width:80%">
+            <header class="w3-container w3-light-grey">
+                <h2>{{getManufacturer(c.carFleetID)}} {{getModel(c.carFleetID)}}</h2>
+            </header>
+            <div>
+                <hr>
+                <img [src]="c.imageFileName" alt="Avatar" class="w3-left  w3-margin-right">
+
+                <img src="/assets/images/check.png" class="symbol">
+                <p>&nbsp;{{getGear(c.carFleetID)}} gear</p>
+
+                <img src="/assets/images/check.png" class="symbol">
+                <p>&nbsp;Year of manufacturer : {{getYearOfManufacturer(c.carFleetID)}}</p>
+
+                <img src="/assets/images/check.png" class="symbol">
+                <p>&nbsp;Available for rent at {{getBranch(c.branchID)}}</p>
+
+                <img src="/assets/images/money.png" class="symbol">
+                <p>&nbsp;{{getDailyCost(c.carFleetID)}} &#8362; per day</p>
+            </div>
+
+            <td>
+                <a routerLink="/orders/new/{{c.id}}">
+                    <button (click)="saveDataToLocalStorage(getManufacturer(c.carFleetID),getModel(c.carFleetID))"
+                        class="w3-button w3-block w3-dark-grey">Rent</button>
+                </a>
+        </div>
+    </div>
+    <ng-container *ngIf="!resultsFound && !strInfo.invalid  ">
+        <img src="/assets/images/info.png" class="info">
+        <p class="center-p">
+            Sorry , we couldn't find any results matching "{{textNoSearchResults}}"
+        </p>
+    </ng-container>
+</section>

@@ -1,0 +1,25 @@
+<!-- If a user has not placed orders, display a link to make one -->
+<ng-conainer *ngIf="ordersPlacedByLoggedUser.length==0">
+        <img src="/assets/images/info.png" class="info"   >
+        <p class="center-p">
+            No car rentals have been made yet, click <a routerLink="/book-car">here</a> to rent a car.
+          </p>
+    </ng-conainer>
+
+<div *ngIf="ordersPlacedByLoggedUser.length>0">
+    <table id="table">
+    <tr>
+    <th>Car number</th>
+    <th>Start date order</th>
+    <th>Return date order</th>
+    <th>Actual return date</th>
+    </tr>
+
+    <tr *ngFor="let o of ordersPlacedByLoggedUser">
+        <td>{{getCarNumber(o.carID)}}</td>
+    <td>{{o.startDate| date : 'dd/MM/yyyy'}}</td>
+    <td>{{o.returnDate| date : 'dd/MM/yyyy'}}</td>
+    <td>{{o.actualReturnDate| date : 'dd/MM/yyyy'}}</td>
+    </tr>
+    </table>
+    </div>

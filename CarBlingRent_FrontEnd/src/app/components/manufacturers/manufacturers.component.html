@@ -1,0 +1,35 @@
+<h1>Manufacturers :</h1>
+
+<a routerLink="/manufacturers/new">
+    <button mat-flat-button color="warn">Add new Manufacturer </button>
+</a>
+<br><br>
+<div>
+
+    <table id="table">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+
+        <tr *ngFor="let m of manufacturers">
+            <td>{{m.id}}</td>
+            <td>{{m.name}}</td>
+            <td>
+                <a routerLink="/manufacturers/{{m.id}}">
+                    <button mat-flat-button color="primary">Update </button>
+                </a>
+            </td>
+
+            <td>
+                <button mat-fab color="primary" aria-label="Example icon button with a delete icon"
+                    (click)="deleteManufacturer(m.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
+<br><br>

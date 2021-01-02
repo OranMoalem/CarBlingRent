@@ -1,0 +1,30 @@
+<div  class="w3-container">
+    <div *ngFor="let c of searchResultsCarRental"  class="w3-card-4" class="center" style="width:80%">
+      <header class="w3-container w3-light-grey">
+        <h2>{{getManufacturer(c.carFleetID)}} {{getModel(c.carFleetID)}}</h2>
+      </header>
+      <div >
+
+        <hr>
+        <img [src]="c.imageFileName" alt="Avatar" class="w3-left  w3-margin-right" >
+        
+        <img src="/assets/images/check.png" class="symbol" >
+        <p>&nbsp;{{getGear(c.carFleetID)}} gear</p>
+
+        <img src="/assets/images/check.png" class="symbol" >
+        <p>&nbsp;Year of manufacturer : {{getYearOfManufacturer(c.carFleetID)}}</p>
+
+        <img src="/assets/images/check.png" class="symbol" >
+        <p>&nbsp;Available for rent at the {{getBranch(c.branchID)}}</p>
+
+        <img src="/assets/images/money.png" class="symbol" >
+        <p>&nbsp;{{getDailyCost(c.carFleetID)}} &#8362; per day</p>
+        
+      </div>
+      <td>
+        <a routerLink="/orders/new/{{c.id}}">
+      <button class="w3-button w3-block w3-dark-grey" >Rent</button>
+    </a> 
+    </div>
+  </div>
+  <br><br>

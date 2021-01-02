@@ -1,0 +1,55 @@
+mat-form-field {
+    width: 150px;
+}
+
+::ng-deep mat-form-field.mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: 0;
+}
+
+mat-form-field {
+    font-size: 10px;
+}
+
+#ex {
+    width: 150px;
+}
+
+img {
+    width: 350px;
+    height: 200px;
+}
+
+.info {
+    width: 70px;
+    height:70px;
+    display: inline;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+  }
+
+.center-p {
+    font-weight: bold;
+    vertical-align: middle;
+    display: inline;
+    margin: auto;
+    width: 50%;
+    text-align: center
+  }
+
+  .symbol {
+    width: 20px;
+    height: 20px; 
+    float: left;
+  }
+
+  p {
+      text-align: left;
+  }
+
+  .none {
+      display: none;
+  }

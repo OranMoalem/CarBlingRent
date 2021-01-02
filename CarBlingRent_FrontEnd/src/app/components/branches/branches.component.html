@@ -1,0 +1,22 @@
+<h1>Branches:</h1>
+
+<div>
+<table id="table" *ngIf="branches">
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Address</th>
+<th>Longitude</th>
+<th>Latitude</th>
+</tr>
+
+<tr *ngFor="let b of branches">
+<td>{{b.id}}</td>
+<td>{{b.name}}</td>
+<td>{{b.address}}</td>
+<td>{{b.longitude}}</td>
+<td>{{b.latitude}}</td>
+</tr>
+
+</table>
+</div>

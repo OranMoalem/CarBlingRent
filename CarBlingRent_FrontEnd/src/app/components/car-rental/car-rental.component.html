@@ -1,0 +1,48 @@
+<h1>Car rental:</h1>
+
+<a routerLink="/carrental/new">
+    <button mat-flat-button color="warn">Add a new car to the cars available for rent</button>
+    </a>
+    <br><br>
+  <div>
+
+    <table id="table">
+    <tr>
+    <th>ID</th>
+    <th>Car Number</th>
+    <th>car Fleet ID</th>
+    <th>Current Mileage</th>
+    <th>Is Proper For Rent</th>
+    <th>Is Available For Rent</th>
+    <th>Branch ID</th>
+    <th>Image</th>
+    <th>Update</th>
+    <th>Delete</th>
+    </tr>
+
+    <tr *ngFor="let c of carRental">
+    <td>{{c.id}}</td>
+    <td>{{c.carNumber}}</td>
+    <td>{{c.carFleetID}}</td>
+    <td>{{c.currentMileage}}</td>
+    <td>{{c.isProperForRent}}</td>
+    <td>{{c.isAvailableForRent}}</td>
+    <td>{{c.branchID}}</td>
+    <td>
+<img [src]="c.imageFileName">
+    </td>
+   
+    <td>
+        <a routerLink="/carrental/{{c.id}}">
+        <button mat-flat-button color="primary">Update</button>
+    </a>
+    </td>
+    <td>
+        <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="deleteCarFromRental(c.id)">
+            <mat-icon >delete</mat-icon>
+          </button>
+    </td>
+    </tr>
+    </table>
+    </div>
+    <br><br>

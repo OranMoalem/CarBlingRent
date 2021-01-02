@@ -1,0 +1,55 @@
+<div class=" cardContactUs ">
+    <h5 class="card-header info-color white-text  py-4">
+        <strong>Contact Us:</strong>
+    </h5>
+    <div class="card-body px-lg-5 pt-0">
+
+
+        <mat-form [formGroup]="contactusform" #PopoupForm="ngForm" class="text-center" style="color: #757575;"
+            action="#!">
+
+            <!-- Name -->
+            <div class="form-row">
+                <mat-form-field class="inputmat" appearance="fill">
+                    <mat-label>Name</mat-label>
+                    <input required matInput type="text" id="materialContactFormName" class="form-control"
+                        formControlName="name">
+                </mat-form-field>
+            </div>
+
+            <!-- E-mail -->
+            <div class=" form-row">
+                <mat-form-field class="inputmat" appearance="fill">
+                    <mat-label>E-mail</mat-label>
+                    <input required matInput type="email" id="materialContactFormEmail" class="form-control"
+                        formControlName="email">
+                </mat-form-field>
+            </div>
+
+            <!-- Subject -->
+            <div class=" form-row">
+                <mat-form-field class="inputmat" appearance="fill">
+                    <mat-label>Subject</mat-label>
+                    <mat-select required class=" form-row" formControlName="reason">
+                        <mat-option value="" disabled>Select</mat-option>
+                        <mat-option value="1" selected>Feedback</mat-option>
+                        <mat-option value="2">Report a problem on the site</mat-option>
+                        <mat-option value="3">Request advice</mat-option>
+                        <mat-option value="4">General question</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <!--Message-->
+            <div class="form-row">
+                <mat-form-field class="inputmat" appearance="fill">
+                    <mat-label for="materialContactFormMessage">Message</mat-label>
+                    <textarea required matInput id="materialContactFormMessage" class="form-control md-textarea"
+                        rows="3" formControlName="msg"></textarea>
+                </mat-form-field>
+            </div>
+            <button [disabled]="PopoupForm.form.invalid"
+                class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect">Send</button>
+        </mat-form>
+    </div>
+</div>

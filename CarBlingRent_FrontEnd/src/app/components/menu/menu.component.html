@@ -1,0 +1,56 @@
+<div class="menu-div">
+    <nav>
+        <span class="greetings">{{greetings}}</span>
+
+        <!-- Gust -->
+        <a routerLink="/home" routerLinkActive="active">Home</a>
+        <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+        <a routerLink="/about" routerLinkActive="active">About</a>
+
+        <ng-conainer *ngIf="user?.role ==='Worker'">
+            <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+            <a routerLink="/return-car" routerLinkActive="active">Return Car</a>
+        </ng-conainer>
+
+        <ng-conainer *ngIf="!user || user?.role ==='User'">
+            <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+            <a routerLink="/search-car" routerLinkActive="active">Search car to rent</a>
+        </ng-conainer>
+
+        <!-- User -->
+        <ng-conainer *ngIf="user?.role ==='User'">
+            <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+            <a routerLink="/book-car" routerLinkActive="active">Book car</a>
+            <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+            <a routerLink="/rentals" routerLinkActive="active">My rentals</a>
+        </ng-conainer>
+
+        <ng-conainer *ngIf="!user">
+            <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+            <a routerLink="/login" routerLinkActive="active">Login</a>
+            <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+            <a routerLink="/auth/register" routerLinkActive="active">Register</a>
+        </ng-conainer>
+
+        <ng-conainer *ngIf="user">
+            <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+            <a routerLink="/logout" routerLinkActive="active">Logout</a>
+        </ng-conainer>
+    </nav>
+</div>
+
+
+<!-- Admin -->
+<div class="menu-admin" *ngIf="user?.role ==='Admin'">
+    <a routerLink="/manufacturers" routerLinkActive="active">Manufacturers</a>
+    <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+    <a routerLink="/branches" routerLinkActive="active">Branches</a>
+    <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+    <a routerLink="/carfleet" routerLinkActive="active">Car Fleet</a>
+    <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+    <a routerLink="/carrental" routerLinkActive="active">Car Rental</a>
+    <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+    <a routerLink="/orders" routerLinkActive="active">Orders</a>
+    <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+    <a routerLink="/users" routerLinkActive="active">Users</a>
+</div>

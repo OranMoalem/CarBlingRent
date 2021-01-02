@@ -1,0 +1,47 @@
+<h1>Car fleet:</h1>
+
+<a routerLink="/carfleet/new">
+    <button mat-flat-button color="warn">Add a new car to the car fleet</button>
+</a>
+<br><br>
+
+<div>
+    <table id="table">
+        <tr>
+            <th>ID</th>
+            <th>Manufacturer ID</th>
+            <th>Model</th>
+            <th>Daily Cost</th>
+            <th>Late Day Cost</th>
+            <th>Year Of Manufacturer</th>
+            <th>Gear</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+
+        <tr *ngFor="let c of carFleet">
+            <td>{{c.id}}</td>
+            <td>{{c.manufacturerID}}</td>
+            <td>{{c.model}}</td>
+            <td>{{c.dailyCost}}</td>
+            <td>{{c.lateDayCost}}</td>
+            <td>{{c.yearOfManufacturer}}</td>
+            <td>{{c.gear}}</td>
+            <td>
+                <a routerLink="/carfleet/{{c.id}}">
+                    <button mat-flat-button color="primary">Update </button>
+                </a>
+            </td>
+
+            <td>
+                <button mat-fab color="primary" aria-label="Example icon button with a delete icon"
+                    (click)="deleteCarFleet(c.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+
+        </tr>
+
+    </table>
+</div>
+<br><br>

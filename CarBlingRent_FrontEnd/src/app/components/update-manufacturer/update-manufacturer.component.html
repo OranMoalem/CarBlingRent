@@ -1,0 +1,19 @@
+<h1>Update manufacturer:</h1>
+
+<form #formInfo="ngForm">
+    <mat-form-field appearance="fill">
+        <mat-label>Manufacturer name :</mat-label>
+        <input matInput type="text" name="name" [(ngModel)]="manufacturer.name" required pattern="^[A-Za-z0-9]*$"
+            #nameInfo="ngModel" maxlength="16" minlength="2">
+        <mat-error *ngIf="nameInfo.errors?.required && nameInfo.touched">Missing manufacturer</mat-error>
+        <mat-error *ngIf="nameInfo.errors?.pattern && nameInfo.touched">Manufacturer must contain only English letters
+            or numbers</mat-error>
+        <mat-error *ngIf="nameInfo.errors?.minlength && nameInfo.touched">Manufacturer must be at least 2 character
+            long.</mat-error>
+    </mat-form-field>
+    <br><br>
+
+    <button mat-raised-button color="primary" [disabled]="formInfo.form.invalid"
+        (click)="updateManufacturer()">Update</button>
+    <br><br>
+</form>

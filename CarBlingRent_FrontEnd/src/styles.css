@@ -1,0 +1,77 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-size: x-large;
+    text-align: center;
+    
+}
+
+a {
+    color: blue;
+}
+
+body { 
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+     
+    
+    }
+
+    
+    
+
+
+  
+ 
+  
+table {
+    width: 100%;
+   
+    
+  }
+
+  td 
+  {
+      height: 70px; 
+      width: 70px;
+  }
+
+
+
+
+  #table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #table td, #table th {
+    border: 1px solid #ddd;
+    text-align: center
+    
+  }
+  
+  #table tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #table tr:hover {background-color: #ddd;}
+  
+  #table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  mat-form-field{
+    width: 250px;
+}
+
+/* section{
+    background-color: #F5F5F5;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+} */
+

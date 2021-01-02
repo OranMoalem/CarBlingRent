@@ -1,0 +1,24 @@
+mat-form-field {
+    width: 220px;
+}
+
+::ng-deep mat-form-field.mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: 0;
+}
+
+mat-form-field {
+    font-size: 10px;
+}
+
+#ex {
+    width: 150px;
+}
+
+.late-day {
+    color: red;
+}
+
+h4 {
+    text-decoration: underline;
+    font-weight: bold;
+}

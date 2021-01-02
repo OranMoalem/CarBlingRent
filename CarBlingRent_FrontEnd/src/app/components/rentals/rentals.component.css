@@ -1,0 +1,14 @@
+.info {
+    width: 70px;
+    height:70px;
+    display: inline;
+}
+
+.center-p {
+    font-weight: bold;
+    vertical-align: middle;
+    display: inline;
+    margin: auto;
+    width: 50%;
+    text-align: center
+  }

@@ -1,0 +1,24 @@
+<br><br>
+<mat-form-field appearance="fill">
+    <mat-label>Enter the duration of the car rental</mat-label>
+    <mat-date-range-input [rangePicker]="picker" [min]="minDate">
+      <input  matStartDate  placeholder="Start date" [(ngModel)]="order.startDate">
+      <input matEndDate placeholder="End date" [(ngModel)]="order.returnDate">
+    </mat-date-range-input>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
+<br>
+
+<ng-container *ngIf="order.startDate && order.returnDate">
+    <p class="">Price for rental period : {{getPriceRental(carFleet.dailyCost)}} Shekels</p>
+    <p class="late-day">Late day price : {{carFleet.lateDayCost}} Shekels</p>
+</ng-container>
+
+<button mat-raised-button color="primary" mat-button [disabled]="!(order.startDate && order.returnDate)"  (click)="addOrder()">Add Order </button>
+<br><br>
+
+<ng-container *ngIf="data">
+    <h4>Last cars you were interested in:</h4>
+    <p> {{data}}</p>
+</ng-container>

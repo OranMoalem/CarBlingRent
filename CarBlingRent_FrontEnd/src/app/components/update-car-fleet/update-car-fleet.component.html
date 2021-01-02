@@ -1,0 +1,81 @@
+<h1>Update car in the fleet :</h1>
+
+<form #formInfo="ngForm">
+    <mat-form-field appearance="fill">
+        <mat-label>Car manufacturer :</mat-label>
+        <mat-select matInput required [(value)]="carFleet.manufacturerID" [formControl]="manufacturerControl">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let m of manufacturers" [value]="m.id">{{ m.name }}</mat-option>
+            <input style="display: none;" matInput type="text" name="manufacturer" [(ngModel)]="carFleet.manufacturerID"
+                required #manufacturerInfo="ngModel">
+        </mat-select>
+        <mat-error *ngIf="manufacturerControl?.hasError('required')">Missing manufacturer</mat-error>
+    </mat-form-field>
+    <br><br>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Car model :</mat-label>
+        <input matInput type="text" name="model" [(ngModel)]="carFleet.model" required pattern="^[A-Za-z0-9]*$"
+            #modelInfo="ngModel" maxlength="20">
+        <mat-error *ngIf="modelInfo.errors?.required && modelInfo.touched">Missing car model.</mat-error>
+        <mat-error *ngIf="modelInfo.errors?.pattern && modelInfo.touched">Car model must contain only English letters or
+            numbers.</mat-error>
+    </mat-form-field>
+    <br><br>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Daily cost :</mat-label>
+        <input matInput type="number" class="example-right-align" name="dailyCost" [(ngModel)]="carFleet.dailyCost"
+            required
+            pattern="([1-9]|[1-8][0-9]|9[0-9]|[1-8][0-9]{2}|9[0-8][0-9]|99[0-9]|[1-8][0-9]{3}|9[0-8][0-9]{2}|99[0-8][0-9]|999[0-9]|[1-4][0-9]{4}|50000)"
+            #dailyCostInfo="ngModel">
+        <span matPrefix>&#8362;</span>
+        <span matSuffix>.00</span>
+        <mat-error *ngIf="dailyCostInfo.errors?.pattern && dailyCostInfo.touched">Price must be positive and maximum
+            50000.</mat-error>
+        <mat-error *ngIf="dailyCostInfo.errors?.required && dailyCostInfo.touched">Missing daily cost.</mat-error>
+    </mat-form-field>
+    <br><br>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Late Day Cost :</mat-label>
+        <input matInput type="number" class="example-right-align" name="lateDayCost" [(ngModel)]="carFleet.lateDayCost"
+            required
+            pattern="([1-9]|[1-8][0-9]|9[0-9]|[1-8][0-9]{2}|9[0-8][0-9]|99[0-9]|[1-8][0-9]{3}|9[0-8][0-9]{2}|99[0-8][0-9]|999[0-9]|[1-4][0-9]{4}|50000)"
+            #lateDayCostInfo="ngModel">
+        <span matPrefix>&#8362;</span>
+        <span matSuffix>.00</span>
+        <mat-error *ngIf="lateDayCostInfo.errors?.pattern && dailyCostInfo.touched">Price must be positive and maximum
+            50000.</mat-error>
+        <mat-error *ngIf="lateDayCostInfo.errors?.required && dailyCostInfo.touched">Missing late day cost.</mat-error>
+    </mat-form-field>
+    <br><br>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Year of manufacturer :</mat-label>
+        <input matInput type="number" name="yearOfManufacturer" [(ngModel)]="carFleet.yearOfManufacturer" required
+            pattern="^(20[01][0-9]|{{date.getFullYear()}})$" #yearOfManufacturerInfo="ngModel">
+        <mat-error *ngIf="yearOfManufacturerInfo.errors?.pattern && yearOfManufacturerInfo.touched">Year of manufacture
+            must be between 2000-{{date.getFullYear()}}.</mat-error>
+        <mat-error *ngIf="yearOfManufacturerInfo.errors?.required && yearOfManufacturerInfo.touched">Missing year of
+            manufacturer.</mat-error>
+    </mat-form-field>
+    <br><br>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Gear :</mat-label>
+        <mat-select matInput required [(value)]="carFleet.gear" [formControl]="gearControl" [(ngModel)]="carFleet.gear">
+            <mat-option>None</mat-option>
+            <mat-option value="Manual">Manual</mat-option>
+            <mat-option value="Automatic">Automatic</mat-option>
+            <mat-option value="Robotic">Robotic</mat-option>
+            <input style="display: none;" matInput type="text" name="carFleetGear" [(ngModel)]="carFleet.gear" required
+                #gearInfo="ngModel">
+        </mat-select>
+        <mat-error *ngIf="gearInfo?.hasError('required')">Missing gear</mat-error>
+    </mat-form-field>
+    <br><br>
+
+    <button mat-raised-button color="primary" [disabled]="formInfo.form.invalid" (click)="updateCarFleet()">Update
+    </button>
+</form>

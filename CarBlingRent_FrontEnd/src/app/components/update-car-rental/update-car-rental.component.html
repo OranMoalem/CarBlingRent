@@ -1,0 +1,99 @@
+<h1>Update car from rental:</h1>
+
+<form #formInfo="ngForm">
+    <mat-form-field appearance="fill">
+        <mat-label>Car Number :</mat-label>
+        <input matInput type="number" name="carNumber" [(ngModel)]="carRental.carNumber" required pattern="[0-9]{7,8}"
+            #carNumberInfo="ngModel">
+        <mat-error *ngIf="carNumberInfo.errors?.pattern && carNumberInfo.touched">Car number must be between 7-8
+            digits..</mat-error>
+        <mat-error *ngIf="carNumberInfo.errors?.required && carNumberInfo.touched">Missing year of car number.
+        </mat-error>
+    </mat-form-field>
+    <br><br>
+
+    <mat-form-field appearance="fill" [style.width.px]=800>
+        <mat-label>Car fleet :</mat-label>
+        <mat-select matInput required [(value)]="carRental.carFleetID" [formControl]="modelControl"
+            [(ngModel)]="carRental.carFleetID" placeholder="ngModel">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let c of carFleet" [value]="c.id">
+                Model&#10152;{{c.model}} |
+                Daily cost&#10152;{{c.dailyCost}} |
+                Late day cost&#10152;{{c.lateDayCost}} |
+                Year of manufacturer&#10152;{{c.yearOfManufacturer}} |
+                Gear&#10152;{{c.gear}}
+            </mat-option>
+            <input style="display: none;" matInput type="text" name="carFleet" [(ngModel)]="carRental.carFleetID"
+                required #modelInfo="ngModel">
+        </mat-select>
+        <mat-error *ngIf="modelControl?.hasError('required')">Missing car fleet.</mat-error>
+    </mat-form-field>
+    <br><br>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Current mileage :</mat-label>
+        <input matInput type="number" name="currentMileage" [(ngModel)]="carRental.currentMileage" required
+            pattern="[0-9]{1,7}" #currentMileageInfo="ngModel">
+        <mat-error *ngIf="currentMileageInfo.errors?.pattern && currentMileageInfo.touched">Error current mileage.
+        </mat-error>
+        <mat-error *ngIf="currentMileageInfo.errors?.required && currentMileageInfo.touched">Missing current mileage.
+        </mat-error>
+    </mat-form-field>
+    <br><br>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Proper for rent :</mat-label>
+        <mat-select matInput required [(value)]="carRental.isProperForRent" [formControl]="isProperForRentControl"
+            [(ngModel)]="carRental.isProperForRent" placeholder="ngModel">
+            <mat-option>None</mat-option>
+            <mat-option value="True">Yes</mat-option>
+            <mat-option value="False">No</mat-option>
+            <input style="display: none;" matInput type="text" name="isProperForRent"
+                [(ngModel)]="carRental.isProperForRent" required #isProperForRentInfo="ngModel">
+        </mat-select>
+        <mat-error *ngIf="isProperForRentInfo?.hasError('required')">Missing proper for rent.</mat-error>
+    </mat-form-field>
+    <br><br>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Available for rent :</mat-label>
+        <mat-select matInput required [(value)]="carRental.isAvailableForRent" [formControl]="isAvailableForRentControl"
+            [(ngModel)]="carRental.isAvailableForRent" placeholder="ngModel">
+            <mat-option>None</mat-option>
+            <mat-option value="True">Yes</mat-option>
+            <mat-option value="False">No</mat-option>
+            <input style="display: none;" matInput type="text" name="isAvailableForRent"
+                [(ngModel)]="carRental.isAvailableForRent" required #isAvailableForRentControlInfo="ngModel">
+        </mat-select>
+        <mat-error *ngIf="isAvailableForRentControlInfo?.hasError('required')">Missing available for rent.</mat-error>
+    </mat-form-field>
+    <br><br>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Branch :</mat-label>
+        <mat-select matInput required [(value)]="carRental.branchID" [formControl]="branchControl"
+            [(ngModel)]="carRental.branchID" placeholder="ngModel">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let b of branches" [value]="b.id">{{ b.name }}</mat-option>
+            <input style="display: none;" matInput type="text" name="branch" [(ngModel)]="carRental.branchID" required
+                #branchInfo="ngModel">
+        </mat-select>
+        <mat-error *ngIf="branchControl?.hasError('required')">Missing branch</mat-error>
+    </mat-form-field>
+    <br><br>
+
+    <input type="file" #imageBox accept="image/*" (change)="displayPreview($event.target.files[0])">
+    <button mat-stroked-button color="primary" class="imageButton" (click)="imageBox.click()">
+        Upload a car image
+    </button>
+    <br><br>
+
+    <ng-container *ngIf="preview">
+        <img src="{{preview}}">
+        <br><br>
+    </ng-container>
+
+    <button mat-raised-button color="primary" [disabled]="formInfo.form.invalid" (click)="UpdateCarRental()">Update Car
+        Rental </button>
+</form>

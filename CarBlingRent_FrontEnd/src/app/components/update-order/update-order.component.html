@@ -1,0 +1,39 @@
+<mat-form-field appearance="fill">
+    <mat-label>User ID :</mat-label>
+    <input matInput type="number" name="userID" [(ngModel)]="order.userID" required pattern="[0-9]"
+        #userIDInfo="ngModel">
+    <mat-error *ngIf="userIDInfo.errors?.pattern && userIDInfo.touched">User ID field must contain numbers only.
+    </mat-error>
+    <mat-error *ngIf="userIDInfo.errors?.required && userIDInfo.touched">Missing user ID.</mat-error>
+</mat-form-field>
+<br><br>
+
+<mat-form-field appearance="fill">
+    <mat-label>Car ID :</mat-label>
+    <input matInput type="number" name="carID" [(ngModel)]="order.carID" required pattern="[0-9]" #carIDInfo="ngModel">
+    <mat-error *ngIf="carIDInfo.errors?.pattern && carIDInfo.touched">Car ID field must contain numbers only.
+    </mat-error>
+    <mat-error *ngIf="carIDInfo.errors?.required && carIDInfo.touched">Missing current mileage.</mat-error>
+</mat-form-field>
+<br><br>
+
+<mat-form-field appearance="fill">
+    <mat-label>Enter the duration of the car rental</mat-label>
+    <mat-date-range-input [rangePicker]="picker">
+        <input matStartDate placeholder="Start date" [(ngModel)]="order.startDate">
+        <input matEndDate placeholder="End date" [(ngModel)]="order.returnDate">
+    </mat-date-range-input>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+</mat-form-field>
+<br><br>
+
+<mat-form-field appearance="fill">
+    <mat-label>Enter the actual return date :</mat-label>
+    <input matInput [matDatepicker]="picker2" [(ngModel)]="order.actualReturnDate">
+    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2></mat-datepicker>
+</mat-form-field>
+<br><br>
+
+<button mat-raised-button color="primary" mat-button (click)="updateOrder()">Update order </button>

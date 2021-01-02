@@ -1,0 +1,63 @@
+<form #formInfo="ngForm">
+    <mat-form-field hideRequiredMarker>
+        <mat-label>Enter full name :</mat-label>
+        <input matInput type="text" name="fullName" [(ngModel)]="user.fullName" #fullNameInfo="ngModel">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field hideRequiredMarker>
+        <mat-label>Enter identity Card :</mat-label>
+        <input matInput type="text" name="identityCard" [(ngModel)]="user.identityCard" #identityCardInfo="ngModel">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field hideRequiredMarker>
+        <mat-label>Enter user name :</mat-label>
+        <input matInput type="text" name="userName" [(ngModel)]="user.userName" #userNameInfo="ngModel">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field hideRequiredMarker>
+        <mat-label>Enter date Of Birth :</mat-label>
+        <input matInput type="date" name="dateOfBirth" [(ngModel)]="user.dateOfBirth" #dateOfBirthInfo="ngModel">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field hideRequiredMarker>
+        <mat-label>Enter gender :</mat-label>
+        <input matInput type="text" name="gender" [(ngModel)]="user.gender" #genderInfo="ngModel">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field hideRequiredMarker>
+        <mat-label>Enter email :</mat-label>
+        <input matInput type="email" name="email" [(ngModel)]="user.email" #emailInfo="ngModel">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field hideRequiredMarker>
+        <mat-label>Enter password :</mat-label>
+        <input matInput type="text" name="password" [(ngModel)]="user.password" #passwordInfo="ngModel">
+    </mat-form-field>
+    <br>
+
+    <input type="file" #imageBox accept="image/*" (change)="displayPreview($event.target.files[0])">
+    <button mat-stroked-button color="primary" class="imageButton" (click)="imageBox.click()">
+        Upload a user image
+    </button>
+    <br><br>
+
+    <ng-container *ngIf="preview">
+        <img src="{{preview}}">
+        <br><br>
+    </ng-container>
+
+    <mat-form-field hideRequiredMarker>
+        <mat-label>Enter role :</mat-label>
+        <input matInput type="text" name="role" [(ngModel)]="user.role" #roleInfo="ngModel">
+    </mat-form-field>
+    <br>
+
+    <button mat-button [disabled]="formInfo.form.invalid" (click)="updateUser()">Update</button>
+    <br><br>
+</form>

@@ -1,0 +1,67 @@
+.wrap{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.wrapA{
+    width: 100%;
+    display: block;
+    text-align: right;
+}
+
+.about-company{
+    display: block;
+    text-align: left;
+    width:100%;
+}
+
+.opening-hours{
+    text-align: left;
+    direction: left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 29%;
+    display: inline-block;
+    vertical-align: top;
+    
+}
+
+.strong{
+    list-style: none;
+    line-height: 30px;
+    font-size: 13px;
+}
+
+.opening-hours-days{
+    padding: 20px;
+    border: solid 1px #e8e8e8;
+    border-color: black;
+    border-radius: 5px;
+}
+
+.text-red{
+    color: red;
+}
+
+.header{
+    text-align: center;
+}
+
+.map{
+    height:500px;
+    width: 35%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.contactus{
+    width: 35%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+p{
+    font-size:15px;
+}
