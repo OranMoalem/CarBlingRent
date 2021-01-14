@@ -1,17 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
 
 @Component({
     selector: 'app-contact-us',
     templateUrl: './contact-us.component.html',
     styleUrls: ['./contact-us.component.css']
 })
-export class ContactUsComponent implements OnInit {
+export class ContactUsComponent {
 
     contactusform: any;
 
-    constructor(private formbulider: FormBuilder, private dialogContactUS: MatDialog) {
+    constructor(private formbulider: FormBuilder) {
         this.contactusform = this.formbulider.group({
             // Check that this fields has been inserted
             name: ['', [Validators.required]],
@@ -21,6 +20,4 @@ export class ContactUsComponent implements OnInit {
         });
     }
 
-    ngOnInit(): void {
-    }
 }

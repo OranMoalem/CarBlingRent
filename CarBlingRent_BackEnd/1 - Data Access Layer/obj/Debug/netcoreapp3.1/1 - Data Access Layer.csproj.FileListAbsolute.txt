@@ -1,0 +1,13 @@
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\1 - Data Access Layer\bin\Debug\netcoreapp3.1\1 - Data Access Layer.deps.json
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\1 - Data Access Layer\bin\Debug\netcoreapp3.1\1 - Data Access Layer.runtimeconfig.json
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\1 - Data Access Layer\bin\Debug\netcoreapp3.1\1 - Data Access Layer.runtimeconfig.dev.json
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\1 - Data Access Layer\bin\Debug\netcoreapp3.1\1 - Data Access Layer.dll
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\1 - Data Access Layer\bin\Debug\netcoreapp3.1\1 - Data Access Layer.pdb
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\1 - Data Access Layer\obj\Debug\netcoreapp3.1\1 - Data Access Layer.csprojAssemblyReference.cache
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\1 - Data Access Layer\obj\Debug\netcoreapp3.1\1 - Data Access Layer.AssemblyInfoInputs.cache
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\1 - Data Access Layer\obj\Debug\netcoreapp3.1\1 - Data Access Layer.AssemblyInfo.cs
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\1 - Data Access Layer\obj\Debug\netcoreapp3.1\1 - Data Access Layer.csproj.CoreCompileInputs.cache
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\1 - Data Access Layer\obj\Debug\netcoreapp3.1\EFCorePluralizer.cs
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\1 - Data Access Layer\obj\Debug\netcoreapp3.1\1 - Data Access Layer.dll
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\1 - Data Access Layer\obj\Debug\netcoreapp3.1\1 - Data Access Layer.pdb
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\1 - Data Access Layer\obj\Debug\netcoreapp3.1\1 - Data Access Layer.genruntimeconfig.cache

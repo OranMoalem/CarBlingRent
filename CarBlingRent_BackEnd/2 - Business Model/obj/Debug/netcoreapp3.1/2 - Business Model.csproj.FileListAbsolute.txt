@@ -1,0 +1,12 @@
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\2 - Business Model\bin\Debug\netcoreapp3.1\2 - Business Model.deps.json
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\2 - Business Model\bin\Debug\netcoreapp3.1\2 - Business Model.dll
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\2 - Business Model\bin\Debug\netcoreapp3.1\2 - Business Model.pdb
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\2 - Business Model\bin\Debug\netcoreapp3.1\1 - Data Access Layer.dll
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\2 - Business Model\bin\Debug\netcoreapp3.1\1 - Data Access Layer.pdb
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\2 - Business Model\obj\Debug\netcoreapp3.1\2 - Business Model.csprojAssemblyReference.cache
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\2 - Business Model\obj\Debug\netcoreapp3.1\2 - Business Model.AssemblyInfoInputs.cache
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\2 - Business Model\obj\Debug\netcoreapp3.1\2 - Business Model.AssemblyInfo.cs
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\2 - Business Model\obj\Debug\netcoreapp3.1\2 - Business Model.csproj.CoreCompileInputs.cache
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\2 - Business Model\obj\Debug\netcoreapp3.1\2 - Business Model.csproj.CopyComplete
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\2 - Business Model\obj\Debug\netcoreapp3.1\2 - Business Model.dll
+C:\Users\oranm\Desktop\CarBling\CarBlingRent_BackEnd\2 - Business Model\obj\Debug\netcoreapp3.1\2 - Business Model.pdb

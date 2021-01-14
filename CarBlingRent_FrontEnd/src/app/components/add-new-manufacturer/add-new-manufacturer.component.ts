@@ -1,9 +1,8 @@
 import { ManufacturersService } from './../../services/manufacturers.service';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ManufacturerModel } from 'src/models/manufacturer.model';
 import { Router } from '@angular/router';
 import { store } from 'src/app/redux/store';
-import { Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-add-new-manufacturer',
